@@ -1,6 +1,6 @@
 .post {
   width: 385px;
-  margin: 0px 25px 40px 25px;
+  margin: 25px 25px 60px 25px;
   display: flex;
   flex-direction: column;
 }

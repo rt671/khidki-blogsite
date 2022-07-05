@@ -1,5 +1,5 @@
 .posts{
-    flex: 9;
+    justify-content: space-around;
     display: flex;
     flex-wrap: wrap;
     margin: 20px;

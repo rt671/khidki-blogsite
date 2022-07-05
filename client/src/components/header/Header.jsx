@@ -4,14 +4,15 @@ export default function Header() {
   return (
     <div className="header">
       <div className="headerTitles">
-        <span className="headerTitleSm">React & Node</span>
-        <span className="headerTitleLg">BLOG</span>
+        <span className="headerTitleSm">Open your Heart Out, with</span>
+        <span className="headerTitleLg">KHIDKI</span>
       </div>
       <img
         className="headerImg"
-        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        src="https://media.istockphoto.com/photos/landscape-nature-view-background-view-from-window-at-a-wonderful-picture-id857789544?k=20&m=857789544&s=170667a&w=0&h=cgSQxmME0vpA2HY-hJN6_zK6RkhS2Rsh5eV-ACaiWg8="
         alt=""
       />
     </div>
   );
 }
+ 
