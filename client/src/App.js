@@ -11,7 +11,7 @@ function App() {
   const currentUser = false;
   return (
     <Router>
-      <Topbar />
+      <Topbar currentUser={currentUser} />
       <Switch>
         <Route exact path="/">
           <Homepage />
