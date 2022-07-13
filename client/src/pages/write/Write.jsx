@@ -30,7 +30,7 @@ export default function Write() {
           />
         </div>
         <button className="writeSubmit" type="submit">
-          Publish
+          Post
         </button>
       </form>
     </div>
