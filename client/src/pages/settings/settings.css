@@ -1,5 +1,7 @@
 .settings {
   display: flex;
+  font-family: "Varela Round", Arial, Helvetica, sans-serif;
+  cursor:default
 }
 
 .settingsWrapper {
@@ -37,11 +39,13 @@
   margin-bottom: 10px;
 }
 
-.settingsPP > img {
+.settingsPP img {
   height: 70px;
   width: 70px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
+
 }
 
 .settingsPPIcon {
@@ -73,12 +77,15 @@
 }
 
 .settingsForm > input {
-  color: gray;
   margin-top: 10px;
   margin-bottom: 10px;
   height: 30px;
   border: none;
   border-bottom: 1px solid lightgray;
+}
+
+.settingsForm input:focus{
+  outline:none;
 }
 
 .settingsSubmitButton {
@@ -97,5 +104,11 @@
 }
 
 .settingsSubmitButton:hover {
-  background-color: rgb(1, 114, 114);
+  background-color: rgb(14, 164, 164);
+}
+
+.successmsg{
+  color:green;
+  margin-top: 30px;
+  text-align:center;
 }

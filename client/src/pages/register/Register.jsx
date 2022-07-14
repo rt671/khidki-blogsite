@@ -37,7 +37,6 @@ export default function Register() {
             onChange={e=>setPassword(e.target.value)}/>
             <button className="registerButton" type="submit">Register</button>
           </form>
-          <button className="registerLoginButton">Login</button>
           {error && <span style={{color: "red", marginTop:'10px'}}>Something went Wrong</span>}
     </div>
     )
