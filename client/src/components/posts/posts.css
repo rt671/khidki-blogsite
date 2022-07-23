@@ -1,6 +1,6 @@
 .posts{
-    justify-content: space-around;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin: 20px;
 }

@@ -4,7 +4,6 @@ import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import "./homepage.css";
 import axios from "axios";
-import Sidebar from"../../components/sidebar/Sidebar";
 
 export default function Homepage() {
   const [posts, setPosts] = useState([]);
@@ -12,21 +11,19 @@ export default function Homepage() {
 
   useEffect(() => {
     const fetchPosts = async() => {
-      const res = await axios.get("/posts"+search);
+      const res = await axios.get("https://khidki-api.herokuapp.com/api/posts"+search);
       console.log(res);
       setPosts(res.data);
+      console.log("Successful");
     }
     fetchPosts();
   }, [search])
   
-  // const location = useLocation();
-  // console.log(location);
   return (
     <>
       <Header />
       <div className="home">
         <Posts posts={posts}/>
-        <Sidebar />
       </div>
     </>
   );

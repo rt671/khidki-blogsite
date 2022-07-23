@@ -8,7 +8,7 @@ export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
-  const user = useContext(Context);
+  const {user} = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,13 +24,14 @@ export default function Write() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("https://khidki-api.herokuapp.com/api/upload", data);
       } catch (err) { }
     }
     try {
-      const res = await axios.post("/posts", newPost);
+      console.log("Posting the post", newPost);
+      const res = await axios.post("https://khidki-api.herokuapp.com/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
-    } catch (err) { }
+    } catch (err) { console.log("Problem occured");}
   };
 
   return (
@@ -45,7 +46,7 @@ export default function Write() {
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
-            <i className="writeIcon fas fa-plus"></i>
+          <i className="writeIcon fa-solid fa-camera"></i>
           </label>
           <input id="fileInput" type="file" style={{ display: "none" }}
             onChange={(e) => setFile(e.target.files[0])} />

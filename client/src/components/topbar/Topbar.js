@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 export default function Topbar() {
   const {user, dispatch} = useContext(Context);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://khidki-api.herokuapp.com/images/";
 
 
   const handleLogout = () => {
@@ -13,6 +13,7 @@ export default function Topbar() {
     dispatch({type:"LOGOUT"});
   }
 
+  console.log(user);
   return (
     <div className="top">
       <div className="topLeft">
@@ -37,7 +38,7 @@ export default function Topbar() {
           <><Link className="link" to="/settings">
             <img
               className="topImg"
-              src={PF+user.profilePic || `https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png`}
+              src={(user.profilePic && PF+user.profilePic) || `https://www.seekpng.com/png/detail/73-730482_existing-user-default-avatar.png`}
               alt="" />
           </Link>
           <p className="topListItem" onClick={handleLogout}>LOGOUT</p></>

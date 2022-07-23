@@ -17,7 +17,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get("https://khidki-api.herokuapp.com/api/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -27,28 +27,28 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("/posts/" + path, { data: { username: user.username } });
+      await axios.delete("https://khidki-api.herokuapp.com/api/posts/" + path, { data: { username: user.username } });
       window.location.replace("/");
     } catch (err) { }
   }
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/posts/${post._id}`, {
+      await axios.put(`https://khidki-api.herokuapp.com/api/posts/${post._id}`, {
         username: user.username, title, desc
       });
       setUpdateMode(false);
     } catch (err) { }
   }
 
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://khidki-api.herokuapp.com/images/";
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
         {post.photo && (
           <img
             className="singlePostImg"
-            src={PF + post.photo}
+            src={(PF + post.photo) || `https://static.wixstatic.com/media/bb1bd6_075c2ae7db634d9e846b440ba3380f8a~mv2.png/v1/fill/w_924,h_623,al_c/bb1bd6_075c2ae7db634d9e846b440ba3380f8a~mv2.png`}
             alt=""
           />
         )}

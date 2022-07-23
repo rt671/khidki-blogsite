@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   useEffect(() =>{
     const getCats = async() => {
-      const res = await axios.get("/categories");
+      const res = await axios.get("https://khidki-api.herokuapp.com/api/categories");
       setCats(res.data);
     }
     getCats();
@@ -16,7 +16,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">ABOUT ME</span>
+        <span className="sidebarTitle">ABOUT THE AUTHOR</span>
         <img
           src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
           alt=""
@@ -30,8 +30,8 @@ export default function Sidebar() {
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           {cats.map(cat => (
-            <Link to={`/?cat=${cat.name}`} className="link">
-            <li className="sidebarListItem">{cat.name}</li>
+            <Link to={`/?cat=${cat.name}`} className="link" key={cat._id}>
+            <li className="sidebarListItem" >{cat.name}</li>
             </Link>
           ))}
         </ul>

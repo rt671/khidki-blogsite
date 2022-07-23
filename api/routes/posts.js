@@ -3,10 +3,11 @@ const Post = require("../models/Post");
 
 // CREATING POST
 router.post("/", (req, res) => {
+    console.log("Hi, I am backend!, processing your request");
     const newPost = new Post(req.body);
     newPost.save()
     .then(savedPost => res.status(200).json(savedPost))
-    .catch(err => res.status(500).json(err));
+    .catch(err => {console.log("oops"); res.status(500).json(err)});
 })
 
 // UPDATING POST

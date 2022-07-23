@@ -11,7 +11,7 @@ export default function Settings() {
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
   const [success, setSuccess] = useState(false);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://khidki-api.herokuapp.com/images/";
 
   const handleUserUpdate = async (e) => {
     e.preventDefault();
@@ -27,12 +27,12 @@ export default function Settings() {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("https://khidki-api.herokuapp.com/api/upload", data);
       } catch (err) { }
     }
 
     try {
-      const res = await axios.put("/user/" + user._id, updatedUser);
+      const res = await axios.put("https://khidki-api.herokuapp.com/api/user/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
     } catch (err) {
@@ -53,7 +53,7 @@ export default function Settings() {
           <div className="settingsPP">
             <label htmlFor="fileInput">
               <img
-                src={PF+user.profilePic || `https://t3.ftcdn.net/jpg/03/64/62/36/360_F_364623623_ERzQYfO4HHHyawYkJ16tREsizLyvcaeg.jpg`}
+                src={(user.profilePic && PF+user.profilePic) || `https://t3.ftcdn.net/jpg/03/64/62/36/360_F_364623623_ERzQYfO4HHHyawYkJ16tREsizLyvcaeg.jpg`}
                 alt=""
               />
             </label>

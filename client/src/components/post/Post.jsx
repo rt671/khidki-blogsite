@@ -2,20 +2,22 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 export default function Post({ post }) {
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://khidki-api.herokuapp.com/images/";
+  console.log(post.photo);
   return (
     <div className="post">
-      {post.photo &&
+      {
         <img
           className="postImg"
-          src={PF + post.photo || `https://wallpaperaccess.com/full/2125015.jpg`}
+          src={(post.photo && PF+post.photo) || `https://data.whicdn.com/images/339065287/original.jpg`}
           alt=""
         />
       }
+      {console.log(PF+post.photo)}
       <div className="postInfo">
         <div className="postCats">
           {post.categories.map(c => (
-            <span className="postCat">{c.name}</span>
+            <span className="postCat" key={c._id}>{c.name}</span>
           ))}
         </div>
         <span className="postTitle">
